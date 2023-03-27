@@ -1,0 +1,11 @@
+[user]
+    email = {{ dig "git" "email" .email . }}
+    name = {{ dig "git" "name" .name . }}
+[core]
+    editor = subl -n -w
+    excludesfile = ~/.gitignore
+[merge]
+    conflictstyle = diff3
+
+[include]
+    path = ~/.gitconfig_local

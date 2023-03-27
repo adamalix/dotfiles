@@ -1,0 +1,43 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+sublime_location="/Applications/Sublime Text.app"
+
+if [ -s $sublime_location ]; then
+  path+=("$sublime_location/Contents/SharedSupport/bin")
+fi
+
+if [ -s "$HOME/.config/emacs/bin" ]; then
+  path+=("$HOME/.config/emacs/bin")
+fi
+
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+
+promptinit
+prompt steeef
+
+if [ -e "$HOME/.nvm" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
+  export SDKMAN_DIR="$HOME/.sdkman"
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
+  export JAVA_HOME="$(sdk home java 17.0.3.6.1-amzn)"
+else
+  export JAVA_HOME=`/usr/libexec/java_home -v 18`
+fi
