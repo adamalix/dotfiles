@@ -1,6 +1,6 @@
 [user]
-#    email = {{ dig "git" "email" .email . }}
-#    name = {{ dig "git" "name" .name . }}
+    email = {{ .email | quote }}
+    name = {{ .name | quote }}
 [core]
     editor = subl -n -w
     excludesfile = ~/.gitignore
