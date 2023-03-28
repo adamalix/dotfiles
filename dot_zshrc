@@ -31,7 +31,7 @@ fi
 if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   export SDKMAN_DIR="$HOME/.sdkman"
   source "$HOME/.sdkman/bin/sdkman-init.sh"
-  export JAVA_HOME="$(sdk home java 17.0.3.6.1-amzn)"
+  export JAVA_HOME="$(sdk home java 17.0.4-amzn)"
 else
   export JAVA_HOME=`/usr/libexec/java_home -v 18`
 fi
