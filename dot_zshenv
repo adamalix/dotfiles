@@ -8,4 +8,8 @@ if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
   fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 fi
 
+if [ -d "$HOME/.cargo/" ]; then
+  path+=("$HOME/.cargo/bin")
+fi
+
 export EDITOR="subl -n -w"
