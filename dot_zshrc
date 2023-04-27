@@ -35,3 +35,8 @@ if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
 else
   export JAVA_HOME=`/usr/libexec/java_home -v 18`
 fi
+
+if [[ -e "$(brew --prefix)/share/google-cloud-sdk/" ]]; then
+  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+fi
