@@ -1,0 +1,7 @@
+.vscode/
+env/
+.sdkmanrc
+.bsp/
+.metals/
+.bloop/
+project/

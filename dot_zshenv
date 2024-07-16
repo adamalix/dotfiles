@@ -12,4 +12,4 @@ if [ -d "$HOME/.cargo/" ]; then
   path+=("$HOME/.cargo/bin")
 fi
 
-export EDITOR="zed --wait --new"
+export EDITOR="subl -n -w"
