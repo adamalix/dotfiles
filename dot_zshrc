@@ -49,3 +49,7 @@ fi
 if [[ -f $HOME/.zshrc_local ]] then
   source $HOME/.zshrc_local
 fi
+
+if [[ -d /opt/spotify-devex/bin ]] then
+  export PATH=/opt/spotify-devex/bin:$PATH
+fi
