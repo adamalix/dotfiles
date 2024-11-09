@@ -1,4 +1,5 @@
 # Customize to your needs...
+autoload -Uz compinit && compinit
 
 if [ -s "$HOME/.config/emacs/bin" ]; then
   path+=("$HOME/.config/emacs/bin")
