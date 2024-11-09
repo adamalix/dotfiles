@@ -41,5 +41,5 @@ if [[ -d /opt/spotify-devex/bin ]] then
 fi
 
 if [[ -f $HOME/.local/bin/mise ]] then
-  eval "$($HOME/.local/bin/mise activate zsh)"
+  eval "$($HOME/.local/bin/mise activate --shims zsh)"
 fi
