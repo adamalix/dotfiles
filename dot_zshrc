@@ -18,7 +18,6 @@ if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   export SDKMAN_DIR="$HOME/.sdkman"
   source "$HOME/.sdkman/bin/sdkman-init.sh"
 elif [[ -e "/usr/libexec/java_home" ]]; then
-  echo "LMAO"
   export JAVA_HOME=`/usr/libexec/java_home -v 18`
 fi
 
