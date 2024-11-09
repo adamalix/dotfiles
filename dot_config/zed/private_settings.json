@@ -19,10 +19,12 @@
   "buffer_font_size": 15,
   "restore_on_startup": "none",
   "auto_install_extensions": {
-    "sql": true,
-    "html": true,
     "git-firefly": true,
-    "swift": true
+    "html": true,
+    "ruff": true,
+    "sql": true,
+    "swift": true,
+    "toml": true
   },
   "wrap_guides": [120]
 }
