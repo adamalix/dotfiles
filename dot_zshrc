@@ -53,3 +53,7 @@ fi
 if [[ -d /opt/spotify-devex/bin ]] then
   export PATH=/opt/spotify-devex/bin:$PATH
 fi
+
+if [[ -f $HOME/.local/bin/mise ]] then
+  eval "$($HOME/.local/bin/mise activate zsh)"
+fi
