@@ -43,3 +43,5 @@ fi
 if [[ -f $HOME/.local/bin/mise ]] then
   eval "$($HOME/.local/bin/mise activate --shims zsh)"
 fi
+
+alias ls='ls -G'
