@@ -47,3 +47,5 @@ fi
 if command -v uvx >/dev/null 2>&1; then
   eval "$(uvx --generate-shell-completion zsh)"
 fi
+
+export TAPLO_CONFIG=~/.config/taplo/.taplo.toml

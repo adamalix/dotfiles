@@ -1,3 +1,2 @@
 [formatting]
-array_auto_expand = false
-compact_arrays = false
+array_auto_collapse = false
