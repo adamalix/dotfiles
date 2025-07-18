@@ -1,5 +1,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-if [[ -f $HOME/.zprofile.local ]] then
-	source $HOME/.zprofile.local
+if [[ -f $HOME/.zprofile.local ]]; then
+	source $HOME/.zprofile.local || echo "Warning: Failed to load local zprofile configuration"
 fi

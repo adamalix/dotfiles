@@ -1,19 +1,17 @@
-if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
-  fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
-fi
-
-if [ -d "$HOME/.cargo/" ]; then
+# Rust/Cargo PATH
+if [ -d "$HOME/.cargo/bin" ]; then
   path+=("$HOME/.cargo/bin")
 else
-  echo "Rust not installed"
+  echo "Warning: Rust/Cargo not found - install with 'curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh'" >&2
 fi
 
 export EDITOR="zed --wait --new"
 
+# Node.js version manager
 if [ -d "$HOME/.volta" ]; then
   export VOLTA_HOME="$HOME/.volta"
   export VOLTA_FEATURE_PNPM=1
   export PATH="$VOLTA_HOME/bin:$PATH"
 else
-  echo "Volta not installed"
+  echo "Warning: Volta not found - install with 'curl https://get.volta.sh | bash'" >&2
 fi

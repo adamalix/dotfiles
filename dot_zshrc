@@ -1,47 +1,55 @@
 # Customize to your needs...
+
+# Setup completion paths before initializing completions
+if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
+  fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+fi
+
+# Generate completions before compinit
+if command -v uv >/dev/null 2>&1; then
+  eval "$(uv generate-shell-completion zsh)" || echo "Warning: Failed to load uv completions"
+fi
+
+# Initialize completions
 autoload -Uz compinit && compinit
 
+# PATH additions
 if [ -s "$HOME/.config/emacs/bin" ]; then
   path+=("$HOME/.config/emacs/bin")
 fi
 
-[[ "$CLAUDECODE" != "1" ]] && [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+# Interactive tools and utilities
+if [[ "$CLAUDECODE" != "1" ]] && [ -s "$HOME/.scm_breeze/scm_breeze.sh" ]; then
+  source "$HOME/.scm_breeze/scm_breeze.sh" || echo "Warning: Failed to load SCM Breeze"
+fi
 
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# Development environment managers
+if [[ -f $HOME/.local/bin/mise ]]; then
+  eval "$($HOME/.local/bin/mise activate --shims zsh)" || echo "Warning: Failed to activate mise"
+fi
+
+# Java setup - SDKMAN must be at end per their requirements
 if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   export SDKMAN_DIR="$HOME/.sdkman"
-  source "$HOME/.sdkman/bin/sdkman-init.sh"
+  source "$HOME/.sdkman/bin/sdkman-init.sh" || echo "Warning: Failed to initialize SDKMAN"
 elif [[ -e "/usr/libexec/java_home" ]]; then
-  export JAVA_HOME=`/usr/libexec/java_home -v 18`
+  export JAVA_HOME=`/usr/libexec/java_home -v 18` || echo "Warning: Failed to set JAVA_HOME"
 fi
 
+# Cloud tools
 if [[ -e "$(brew --prefix)/share/google-cloud-sdk/" ]]; then
-  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" || echo "Warning: Failed to load Google Cloud SDK PATH"
+  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc" || echo "Warning: Failed to load Google Cloud SDK completions"
 fi
 
-if command -v pyenv >/dev/null 2>&1; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
 
-if [[ -f $HOME/.zshrc_local ]] then
-  source $HOME/.zshrc_local
-fi
-
-if [[ -f $HOME/.local/bin/mise ]] then
-  eval "$($HOME/.local/bin/mise activate --shims zsh)"
-fi
-
+# Aliases
 alias ls='ls -G'
 
-if command -v uv >/dev/null 2>&1; then
-  eval "$(uv generate-shell-completion zsh)"
-fi
-
-if command -v uvx >/dev/null 2>&1; then
-  eval "$(uvx --generate-shell-completion zsh)"
-fi
-
+# Configuration exports
 export TAPLO_CONFIG=~/.config/taplo/.taplo.toml
+
+# Local overrides (should be last)
+if [[ -f $HOME/.zshrc_local ]]; then
+  source $HOME/.zshrc_local || echo "Warning: Failed to load local zshrc configuration"
+fi
