@@ -5,7 +5,7 @@ if [ -s "$HOME/.config/emacs/bin" ]; then
   path+=("$HOME/.config/emacs/bin")
 fi
 
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+[[ "$CLAUDECODE" != "1" ]] && [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
@@ -28,10 +28,6 @@ fi
 
 if [[ -f $HOME/.zshrc_local ]] then
   source $HOME/.zshrc_local
-fi
-
-if [[ -d /opt/spotify-devex/bin ]] then
-  export PATH=/opt/spotify-devex/bin:$PATH
 fi
 
 if [[ -f $HOME/.local/bin/mise ]] then
