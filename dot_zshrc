@@ -6,10 +6,6 @@ fi
 # Initialize completions
 autoload -Uz compinit && compinit
 
-if command -v uv >/dev/null 2>&1; then
-  eval "$(uv generate-shell-completion zsh)" || echo "Warning: Failed to load uv completions"
-fi
-
 # PATH additions
 if [ -s "$HOME/.config/emacs/bin" ]; then
   path+=("$HOME/.config/emacs/bin")
@@ -23,6 +19,10 @@ fi
 # Development environment managers
 if [[ -f $HOME/.local/bin/mise ]]; then
   eval "$($HOME/.local/bin/mise activate --shims zsh)" || echo "Warning: Failed to activate mise"
+fi
+
+if command -v uv >/dev/null 2>&1; then
+  eval "$(uv generate-shell-completion zsh)" || echo "Warning: Failed to load uv completions"
 fi
 
 # Java setup - SDKMAN must be at end per their requirements
