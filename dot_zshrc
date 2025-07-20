@@ -1,17 +1,14 @@
-# Customize to your needs...
-
-# Setup completion paths before initializing completions
+# completions
 if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
   fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 fi
 
-# Generate completions before compinit
+# Initialize completions
+autoload -Uz compinit && compinit
+
 if command -v uv >/dev/null 2>&1; then
   eval "$(uv generate-shell-completion zsh)" || echo "Warning: Failed to load uv completions"
 fi
-
-# Initialize completions
-autoload -Uz compinit && compinit
 
 # PATH additions
 if [ -s "$HOME/.config/emacs/bin" ]; then
@@ -41,7 +38,6 @@ if [[ -e "$(brew --prefix)/share/google-cloud-sdk/" ]]; then
   source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" || echo "Warning: Failed to load Google Cloud SDK PATH"
   source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc" || echo "Warning: Failed to load Google Cloud SDK completions"
 fi
-
 
 # Aliases
 alias ls='ls -G'
