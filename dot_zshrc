@@ -25,6 +25,10 @@ if command -v uv >/dev/null 2>&1; then
   eval "$(uv generate-shell-completion zsh)" || echo "Warning: Failed to load uv completions"
 fi
 
+if command -v codex >/dev/null 2>&1; then
+  eval "$(codex completion zsh)" || echo "Warning: Failed to load codex completions"
+fi
+
 # Java setup - SDKMAN must be at end per their requirements
 if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   export SDKMAN_DIR="$HOME/.sdkman"
