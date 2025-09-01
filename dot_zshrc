@@ -29,6 +29,14 @@ if command -v pnpm  >/dev/null 2>&1; then
   eval "$(pnpm completion zsh)" || echo "Warning: Failed to load pnpm completions"
 fi
 
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+  export FZF_CTRL_T_OPTS="
+    --walker-skip .git,node_modules,target
+    --preview 'bat -n --color=always {}'
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+fi
+
 if command -v codex >/dev/null 2>&1; then
   eval "$(codex completion zsh)" || echo "Warning: Failed to load codex completions"
 fi
