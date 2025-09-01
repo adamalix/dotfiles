@@ -55,6 +55,54 @@ if [[ -e "$(brew --prefix)/share/google-cloud-sdk/" ]]; then
   source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc" || echo "Warning: Failed to load Google Cloud SDK completions"
 fi
 
+# Git prompt function
+git_prompt_info() {
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    local repo_name branch dirty=""
+    repo_name=$(basename "$(git rev-parse --show-toplevel)")
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD)
+
+    # Collect diff stats
+    local ua ud sa sd untracked
+    ua=0; ud=0; sa=0; sd=0; untracked=0
+
+    # Unstaged insertions/deletions
+    local unstaged_stats
+    unstaged_stats=$(git diff --numstat 2>/dev/null | awk 'BEGIN{a=0;d=0} $1 ~ /^[0-9]+$/ {a+=$1; d+=$2} END{print a, d}')
+    if [[ -n $unstaged_stats ]]; then
+      read -r ua ud <<< "$unstaged_stats"
+    fi
+
+    # Staged insertions/deletions
+    local staged_stats
+    staged_stats=$(git diff --cached --numstat 2>/dev/null | awk 'BEGIN{a=0;d=0} $1 ~ /^[0-9]+$/ {a+=$1; d+=$2} END{print a, d}')
+    if [[ -n $staged_stats ]]; then
+      read -r sa sd <<< "$staged_stats"
+    fi
+
+    # Untracked files count
+    untracked=$(git ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' ')
+
+    # Build dirty segment: unstaged (red), staged (green), untracked (yellow)
+    if (( ua > 0 || ud > 0 )); then
+      dirty+=" %F{red}+${ua}/-${ud}%f"
+    fi
+    if (( sa > 0 || sd > 0 )); then
+      dirty+=" %F{green}+${sa}/-${sd}%f"
+    fi
+    if (( untracked > 0 )); then
+      dirty+=" %F{yellow}?${untracked}%f"
+    fi
+
+    echo " %F{blue}$repo_name%f:%F{cyan}$branch%f$dirty"
+  fi
+}
+
+# Set prompt with git info
+setopt PROMPT_SUBST
+PROMPT='%F{green}%n@%m%f %F{yellow}%~%f$(git_prompt_info)
+❯ '
+
 # Aliases
 alias ls='ls -G'
 
