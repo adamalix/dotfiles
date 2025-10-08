@@ -1,0 +1,44 @@
+model = "gpt-5-codex"
+
+notify = ["python3", "/Users/adam/.codex/notify.py"]
+
+sandbox_mode = "workspace-write"
+
+approval_policy = "on-request"
+
+model_reasoning_effort = "high"
+
+[tools]
+web_search = true
+
+[sandbox_workspace_write]
+network_access = true
+
+writable_roots = [
+    "/Users/adam/.cache",
+    "/Users/adam/.cache/uv",
+    "/Users/adam/.cargo",
+    "/Users/adam/.rustup",
+    "/Users/adam/.npm",
+]
+
+[projects."/Users/adam/dev/github/handheldprojects/inbound-ios-3"]
+trust_level = "trusted"
+
+[projects."/Users/adam/dev/github/handheldprojects/actions"]
+trust_level = "trusted"
+
+[projects."/Users/adam/.local/share/chezmoi"]
+trust_level = "trusted"
+
+[projects."/Users/adam/dev/github/handheldprojects/inbound-ios-4"]
+trust_level = "trusted"
+
+[projects."/Users/adam/dev/github/handheldprojects/inbound-ios"]
+trust_level = "trusted"
+
+[projects."/Users/adam/.codex"]
+trust_level = "trusted"
+
+[projects."/Users/adam/dev/github/adamalix/vanessa-games"]
+trust_level = "trusted"
