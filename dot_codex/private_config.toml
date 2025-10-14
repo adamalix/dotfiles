@@ -20,27 +20,8 @@ writable_roots = [
   "/Users/adam/.cache",
   "/Users/adam/.cache/uv",
   "/Users/adam/.cargo",
-  "/Users/adam/.rustup",
   "/Users/adam/.npm",
+  "/Users/adam/.rustup",
+  "/Users/adam/Library/Caches/Homebrew",
+  "/Users/adam/Library/Caches/mise",
 ]
-
-[projects."/Users/adam/dev/github/handheldprojects/inbound-ios-3"]
-trust_level = "trusted"
-
-[projects."/Users/adam/dev/github/handheldprojects/actions"]
-trust_level = "trusted"
-
-[projects."/Users/adam/.local/share/chezmoi"]
-trust_level = "trusted"
-
-[projects."/Users/adam/dev/github/handheldprojects/inbound-ios-4"]
-trust_level = "trusted"
-
-[projects."/Users/adam/dev/github/handheldprojects/inbound-ios"]
-trust_level = "trusted"
-
-[projects."/Users/adam/.codex"]
-trust_level = "trusted"
-
-[projects."/Users/adam/dev/github/adamalix/vanessa-games"]
-trust_level = "trusted"
