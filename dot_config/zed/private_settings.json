@@ -7,16 +7,15 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "buffer_font_size": 16,
+  "agent_buffer_font_size": 16,
+  "agent_ui_font_size": 18,
+  "wrap_guides": [120],
+  "restore_on_startup": "none",
   "theme": "Ayu Mirage",
-  "git_panel": {
-    "dock": "left"
-  },
+
   "edit_predictions": {
     "mode": "eager",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null
-    },
     "enabled_in_text_threads": false
   },
   "features": {
@@ -30,10 +29,7 @@
       "model": "gpt-5-codex"
     }
   },
-  "base_keymap": "VSCode",
-  "buffer_font_size": 16,
-  "ui_font_size": 16,
-  "restore_on_startup": "none",
+
   "auto_install_extensions": {
     "git-firefly": true,
     "html": true,
@@ -43,18 +39,20 @@
     "tombi": true,
     "toml": true
   },
-  "wrap_guides": [120],
+
   "languages": {
     "Python": {
       "language_servers": ["ruff", "ty"],
-      "formatter": {
-        "language_server": {
-          "name": "ruff"
+      "formatter": [
+        {
+          "code_action": "source.organizeImports.ruff"
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
         }
-      },
-      "code_actions_on_format": {
-        "source.organizeImports.ruff": true
-      }
+      ]
     },
     "Swift": {
       "enable_language_server": true,
