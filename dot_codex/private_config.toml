@@ -2,6 +2,8 @@ model = "gpt-5-codex"
 notify = [
   "uv",
   "run",
+  "--isolated",
+  "--no-project",
   "--python",
   "3.14",
   "python3",
