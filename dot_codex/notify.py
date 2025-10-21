@@ -42,7 +42,7 @@ def main() -> int:
             "codex-" + thread_id,
             "-ignoreDnD",
             "-activate",
-            "com.googlecode.iterm2",
+            "dev.warp.Warp-Stable",
         ]
     )
 
