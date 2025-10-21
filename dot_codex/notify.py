@@ -22,12 +22,14 @@ def main() -> int:
                 title = f"Codex: {assistant_message}"
             else:
                 title = "Codex: Turn Complete!"
-            input_messages = notification.get("input_messages", [])
+            input_messages = notification.get("input-messages", [])
             message = " ".join(input_messages)
             title += message
         case _:
             print(f"not sending a push notification for: {notification_type}")
             return 0
+
+    thread_id = notification.get("thread-id", "")
 
     subprocess.check_output(
         [
@@ -37,7 +39,7 @@ def main() -> int:
             "-message",
             message,
             "-group",
-            "codex",
+            "codex-" + thread_id,
             "-ignoreDnD",
             "-activate",
             "com.googlecode.iterm2",
