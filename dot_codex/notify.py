@@ -19,12 +19,12 @@ def main() -> int:
         case "agent-turn-complete":
             assistant_message = notification.get("last-assistant-message")
             if assistant_message:
-                title = f"Codex: {assistant_message}"
+                message = assistant_message
             else:
-                title = "Codex: Turn Complete!"
-            input_messages = notification.get("input-messages", [])
-            message = " ".join(input_messages)
-            title += message
+                message = "Turn Complete!"
+            cwd = notification.get("cwd", "Unknown Location")
+            title = f"Codex - {cwd}"
+        # TODO: add case for `approval-requested` when that is implemented by OpenAI
         case _:
             print(f"not sending a push notification for: {notification_type}")
             return 0
