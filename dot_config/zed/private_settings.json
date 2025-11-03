@@ -12,7 +12,11 @@
   "agent_ui_font_size": 18,
   "wrap_guides": [120],
   "restore_on_startup": "none",
-  "theme": "Ayu Mirage",
+  "theme": {
+    "mode": "system",
+    "dark": "Catppuccin Frappé",
+    "light": "Catppuccin Latte"
+  },
 
   "edit_predictions": {
     "mode": "eager",
@@ -22,11 +26,15 @@
     "edit_prediction_provider": "copilot"
   },
   "agent": {
+    "inline_assistant_model": {
+      "provider": "openai",
+      "model": "gpt-5"
+    },
     "always_allow_tool_actions": false,
     "default_profile": "ask",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-codex"
+      "provider": "openai",
+      "model": "gpt-5"
     }
   },
 
