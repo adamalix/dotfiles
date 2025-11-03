@@ -1,29 +1,35 @@
 model = "gpt-5-codex"
-notify = [
-  "uv",
-  "run",
-  "--isolated",
-  "--no-project",
-  "--python",
-  "3.14",
-  "python3",
-  "/Users/adam/.codex/notify.py",
-]
+# notify = [
+#   "uv",
+#   "run",
+#   "--isolated",
+#   "--no-project",
+#   "--python",
+#   "3.14",
+#   "python3",
+#   "/Users/adam/.codex/notify.py",
+# ]
 sandbox_mode = "workspace-write"
 approval_policy = "on-request"
 model_reasoning_effort = "high"
 
-[tools]
-web_search = true
+[features]
+web_search_request = true
 
 [sandbox_workspace_write]
 network_access = true
 writable_roots = [
-  "/Users/adam/.cache",
-  "/Users/adam/.cache/uv",
   "/Users/adam/.cargo",
   "/Users/adam/.npm",
   "/Users/adam/.rustup",
   "/Users/adam/Library/Caches/Homebrew",
   "/Users/adam/Library/Caches/mise",
 ]
+
+[tui]
+notifications = true
+
+[mcp_servers.sosumi]
+# url = "https://sosumi.ai/mcp"
+command = "pnpm"
+args = ["dlx", "mcp-remote", "https://sosumi.ai/mcp"]
