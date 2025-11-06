@@ -6,6 +6,11 @@ fi
 # Initialize completions
 autoload -Uz compinit && compinit
 
+zstyle ':completion:*' matcher-list \
+  'm:{a-z}={A-Z}' \
+  'r:|[._-]=** r:|=**' \
+  'l:|=* r:|=*'
+
 # PATH additions
 if [ -s "$HOME/.config/emacs/bin" ]; then
   path+=("$HOME/.config/emacs/bin")
