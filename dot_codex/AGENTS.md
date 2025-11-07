@@ -9,3 +9,7 @@ Use the `gh` command to interact with GitHub whenever possible.
 - "assign me to issue 1160" -> assign yourself using `gh issue edit 1160 --add-assignee @me`
 - "implement the fixes proposed in the comments on pull request 1727" --> check the comments use `gh pr view 1727 --comments`
 </examples>
+
+# Sandbox issues
+
+When a shell command fails with “failed in sandbox”, use the permission request tool (with `with_escalated_permissions`) to ask the user for approval before retrying.
