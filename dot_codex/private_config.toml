@@ -19,6 +19,7 @@ web_search_request = true
 [sandbox_workspace_write]
 network_access = true
 writable_roots = [
+  "/Users/adam/.cache/uv",
   "/Users/adam/.cargo",
   "/Users/adam/.npm",
   "/Users/adam/.rustup",
