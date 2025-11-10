@@ -12,4 +12,4 @@ Use the `gh` command to interact with GitHub whenever possible.
 
 # Sandbox issues
 
-When a shell command fails with “failed in sandbox”, use the permission request tool (with `with_escalated_permissions`) to ask the user for approval before retrying.
+When a shell command fails with “failed in sandbox” or errors referencing "Sandbox", use the permission request tool (with `with_escalated_permissions`) to ask the user for approval before retrying.
