@@ -4,11 +4,14 @@
 [core]
     editor = zed --wait --new
     excludesfile = ~/.gitignore
+    pager = delta
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [include]
     path = ~/.gitconfig_local
+[interactive]
+    diffFilter = delta --color-only
 [pull]
     rebase = true
 [filter "lfs"]
@@ -16,3 +19,7 @@
     required = true
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
+[delta]
+    navigate = true
+    line-numbers = true
+    hyperlinks = true
