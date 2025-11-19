@@ -1,4 +1,4 @@
-model = "gpt-5-codex"
+model = "gpt-5.1-codex-max"
 # notify = [
 #   "uv",
 #   "run",
@@ -32,11 +32,11 @@ writable_roots = [
 notifications = true
 
 [mcp_servers.sosumi]
-# url = "https://sosumi.ai/mcp"
-command = "pnpm"
-args = ["dlx", "mcp-remote", "https://sosumi.ai/mcp"]
+url = "https://sosumi.ai/mcp"
+# command = "pnpm"
+# args = ["dlx", "mcp-remote", "https://sosumi.ai/mcp"]
+# args = ["dlx", "mcp-remote", "http://localhost:8787/mcp"]
 
-[profiles.deep-review]
-model = "gpt-5-pro"
-model_reasoning_effort = "high"
-approval_policy = "never"
+[notice]
+hide_gpt5_1_migration_prompt = true
+"hide_gpt-5.1-codex-max_migration_prompt" = true
