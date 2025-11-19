@@ -6,12 +6,3 @@ else
 fi
 
 export EDITOR="zed --wait --new"
-
-# Node.js version manager
-if [ -d "$HOME/.volta" ]; then
-  export VOLTA_HOME="$HOME/.volta"
-  export VOLTA_FEATURE_PNPM=1
-  export PATH="$VOLTA_HOME/bin:$PATH"
-else
-  echo "Warning: Volta not found - install with 'curl https://get.volta.sh | bash'" >&2
-fi
