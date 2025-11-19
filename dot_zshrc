@@ -122,3 +122,11 @@ export TAPLO_CONFIG=~/.config/taplo/.taplo.toml
 if [[ -f $HOME/.zshrc_local ]]; then
   source $HOME/.zshrc_local || echo "Warning: Failed to load local zshrc configuration"
 fi
+
+# pnpm
+export PNPM_HOME="/Users/adam/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
