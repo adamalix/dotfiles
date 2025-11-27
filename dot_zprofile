@@ -1,10 +1,8 @@
 # No need to eval the shellenv in the Codex sandbox
 if [[ -z ${CODEX_SANDBOX:-} ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-
-
 if [[ -f $HOME/.zprofile.local ]]; then
-	source $HOME/.zprofile.local || echo "Warning: Failed to load local zprofile configuration"
+  source $HOME/.zprofile.local || echo "Warning: Failed to load local zprofile configuration"
 fi
