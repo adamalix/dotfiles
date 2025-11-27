@@ -3,7 +3,38 @@ if [ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]; then
   fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 fi
 
-# Initialize completions
+# Completion cache
+ZSH_CACHE_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/zsh
+ZSH_COMP_DIR="$ZSH_CACHE_DIR/completions"
+ZSH_COMP_REFRESH_DAYS=7
+mkdir -p "$ZSH_COMP_DIR"
+fpath=("$ZSH_COMP_DIR" $fpath)
+
+# Refresh cached uv completion every N days
+if command -v uv >/dev/null 2>&1; then
+  uv_comp_file="$ZSH_COMP_DIR/_uv"
+  if [[ ! -s $uv_comp_file || $(find "$uv_comp_file" -mtime +$ZSH_COMP_REFRESH_DAYS -print -quit) ]]; then
+    uv generate-shell-completion zsh >| "$uv_comp_file" || echo "Warning: Failed to cache uv completions"
+  fi
+fi
+
+# Refresh cached pnpm completion every N days
+if command -v pnpm >/dev/null 2>&1; then
+  pnpm_comp_file="$ZSH_COMP_DIR/_pnpm"
+  if [[ ! -s $pnpm_comp_file || $(find "$pnpm_comp_file" -mtime +$ZSH_COMP_REFRESH_DAYS -print -quit) ]]; then
+    pnpm completion zsh >| "$pnpm_comp_file" || echo "Warning: Failed to cache pnpm completions"
+  fi
+fi
+
+# Refresh cached codex completion every N days
+if command -v codex >/dev/null 2>&1; then
+  codex_comp_file="$ZSH_COMP_DIR/_codex"
+  if [[ ! -s $codex_comp_file || $(find "$codex_comp_file" -mtime +$ZSH_COMP_REFRESH_DAYS -print -quit) ]]; then
+    codex completion zsh >| "$codex_comp_file" || echo "Warning: Failed to cache codex completions"
+  fi
+fi
+
+# Initialize completions (after cached completion files are in place)
 autoload -Uz compinit && compinit
 
 zstyle ':completion:*' matcher-list \
@@ -26,14 +57,6 @@ if [[ -f $HOME/.local/bin/mise ]]; then
   eval "$($HOME/.local/bin/mise activate --shims zsh)" || echo "Warning: Failed to activate mise"
 fi
 
-if command -v uv >/dev/null 2>&1; then
-  eval "$(uv generate-shell-completion zsh)" || echo "Warning: Failed to load uv completions"
-fi
-
-if command -v pnpm  >/dev/null 2>&1; then
-  eval "$(pnpm completion zsh)" || echo "Warning: Failed to load pnpm completions"
-fi
-
 if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh)
   export FZF_CTRL_T_OPTS="
@@ -46,10 +69,6 @@ if command -v fzf >/dev/null 2>&1; then
     --preview 'tree -C {}'"
 fi
 
-if command -v codex >/dev/null 2>&1; then
-  eval "$(codex completion zsh)" || echo "Warning: Failed to load codex completions"
-fi
-
 # Java setup - SDKMAN must be at end per their requirements
 if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   export SDKMAN_DIR="$HOME/.sdkman"
@@ -59,9 +78,9 @@ elif [[ -e "/usr/libexec/java_home" ]]; then
 fi
 
 # Cloud tools
-if [[ -e "$(brew --prefix)/share/google-cloud-sdk/" ]]; then
-  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" || echo "Warning: Failed to load Google Cloud SDK PATH"
-  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc" || echo "Warning: Failed to load Google Cloud SDK completions"
+if [[ -e "$HOMEBREW_PREFIX/share/google-cloud-sdk/" ]]; then
+  source "$HOMEBREW_PREFIX/share/google-cloud-sdk/path.zsh.inc" || echo "Warning: Failed to load Google Cloud SDK PATH"
+  source "$HOMEBREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc" || echo "Warning: Failed to load Google Cloud SDK completions"
 fi
 
 # Git prompt function
