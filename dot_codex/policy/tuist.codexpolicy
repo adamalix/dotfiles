@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["tuist", ["build", "generate", "install", "test", "xcodebuild"]],
+    decision = "allow",
+    match = [["tuist", "build"], ["tuist", "generate"], ["tuist", "install"], ["tuist", "test"], ["tuist", "xcodebuild", "build", "-workspace", "MyApp.xcworkspace"]],
+    not_match = [["git", "oops"]],
+)

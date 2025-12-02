@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["xcrun", "simctl", "list"],
+    decision = "allow",
+    match = [["xcrun", "simctl", "list", "devices", "available"]],
+    not_match = [["xcrun", "simctl", "delete"]],
+)
