@@ -4,3 +4,10 @@ prefix_rule(
     match = [["git", "stash", "push"], ["git", "add", "lmao.py"]],
     not_match = [["git", "commit"], ["git", "merge"], ["git", "push"], ["git", "rebase"]],
 )
+
+prefix_rule(
+    pattern = ["git", ["commit", "merge", "push", "rebase"]],
+    decision = "prompt",
+    match = [["git", "commit"], ["git", "merge"]],
+    not_match = [["git", "fart"], ["git", "checkout"], ["git", "diff"], ["git", "lullaby"]],
+)
