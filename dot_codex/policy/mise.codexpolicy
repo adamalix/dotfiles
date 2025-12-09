@@ -4,3 +4,10 @@ prefix_rule(
     match = [["mise", "run", "find-unused-code"]],
     not_match = [["mise", "run", "delete"]],
 )
+
+prefix_rule(
+    pattern = ["mise", "exec", ["tuist"]],
+    decision = "allow",
+    match = [["mise", "exec", "tuist", "--", "tuist", "test", "--no-selective-testing", "--test-targets", "InboundTests/PeopleServiceTests"]],
+    not_match = [["mise", "exec", "bad_thing"]],
+)
