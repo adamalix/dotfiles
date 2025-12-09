@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["periphery", "scan"],
+    decision = "allow",
+    match = [["periphery", "scan", "--relative-results"]],
+    not_match = [["xcrun", "simctl", "delete"]],
+)

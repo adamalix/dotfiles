@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["git", ["add", "checkout", "diff", "fetch", "stash", "status", "switch"]],
+    decision = "allow",
+    match = [["git", "stash", "push"], ["git", "add", "lmao.py"]],
+    not_match = [["git", "commit"], ["git", "merge"], ["git", "push"], ["git", "rebase"]],
+)

@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["mise", "run", ["find-unused-code"]],
+    decision = "allow",
+    match = [["mise", "run", "find-unused-code"]],
+    not_match = [["mise", "run", "delete"]],
+)
