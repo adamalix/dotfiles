@@ -8,6 +8,6 @@ prefix_rule(
 prefix_rule(
     pattern = ["git", ["commit", "merge", "push", "rebase"]],
     decision = "prompt",
-    match = [["git", "commit"], ["git", "merge"]],
+    match = [["git", "commit", "-am"], ["git", "merge"]],
     not_match = [["git", "fart"], ["git", "checkout"], ["git", "diff"], ["git", "lullaby"]],
 )
