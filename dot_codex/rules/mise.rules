@@ -11,3 +11,10 @@ prefix_rule(
     match = [["mise", "exec", "tuist", "--", "tuist", "test", "--no-selective-testing", "--test-targets", "InboundTests/PeopleServiceTests"]],
     not_match = [["mise", "exec", "bad_thing"]],
 )
+
+prefix_rule(
+    pattern = ["mise", "exec", "--", ["tuist"]],
+    decision = "allow",
+    match = [["mise", "exec", "--", "tuist", "test", "--no-selective-testing", "--test-targets", "InboundTests/PeopleServiceTests"]],
+    not_match = [["mise", "exec", "bad_thing"]],
+)
