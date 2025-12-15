@@ -7,6 +7,11 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Frappé"
+  },
   "colorize_brackets": true,
   "buffer_font_size": 16,
   "agent_buffer_font_size": 16,
@@ -40,8 +45,11 @@
   },
 
   "auto_install_extensions": {
+    "catppuccin": true,
+    "catppuccin-icons": true,
     "git-firefly": true,
     "html": true,
+    "log": true,
     "sql": true,
     "swift": true,
     "tombi": true,
