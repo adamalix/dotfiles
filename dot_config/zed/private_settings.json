@@ -10,7 +10,7 @@
   "icon_theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Frappé"
+    "dark": "Catppuccin Frappé",
   },
   "colorize_brackets": true,
   "buffer_font_size": 16,
@@ -21,27 +21,27 @@
   "theme": {
     "mode": "system",
     "dark": "Catppuccin Frappé",
-    "light": "Catppuccin Latte"
+    "light": "Catppuccin Latte",
   },
 
   "edit_predictions": {
     "mode": "eager",
-    "enabled_in_text_threads": false
+    "enabled_in_text_threads": false,
   },
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "copilot",
   },
   "agent": {
     "inline_assistant_model": {
       "provider": "openai",
-      "model": "gpt-5"
+      "model": "gpt-5.2",
     },
     "always_allow_tool_actions": false,
     "default_profile": "ask",
     "default_model": {
       "provider": "openai",
-      "model": "gpt-5"
-    }
+      "model": "gpt-5.2",
+    },
   },
 
   "auto_install_extensions": {
@@ -53,28 +53,18 @@
     "sql": true,
     "swift": true,
     "tombi": true,
-    "toml": true
+    "toml": true,
   },
 
   "languages": {
     "Python": {
-      "language_servers": ["ruff", "ty"],
-      "formatter": [
-        {
-          "code_action": "source.organizeImports.ruff"
-        },
-        {
-          "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
+      "language_servers": ["ruff", "ty", "!basedpyright"],
     },
     "Swift": {
       "enable_language_server": true,
-      "language_servers": ["sourcekit-lsp"],
       "formatter": "language_server",
-      "format_on_save": "on"
-    }
-  }
+      "format_on_save": "on",
+      "language_servers": ["sourcekit-lsp"],
+    },
+  },
 }
