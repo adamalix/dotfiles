@@ -1,14 +1,4 @@
 model = "gpt-5.2-codex"
-# notify = [
-#   "uv",
-#   "run",
-#   "--isolated",
-#   "--no-project",
-#   "--python",
-#   "3.14",
-#   "python3",
-#   "/Users/adam/.codex/notify.py",
-# ]
 sandbox_mode = "workspace-write"
 approval_policy = "on-request"
 model_reasoning_effort = "high"
@@ -30,18 +20,5 @@ writable_roots = [
   "/Users/adam/Library/Caches/mise",
 ]
 
-[tui]
-notifications = true
-
 [mcp_servers.sosumi]
 url = "https://sosumi.ai/mcp"
-# command = "pnpm"
-# args = ["dlx", "mcp-remote", "https://sosumi.ai/mcp"]
-# args = ["dlx", "mcp-remote", "http://localhost:8787/mcp"]
-
-[notice]
-hide_gpt5_1_migration_prompt = true
-"hide_gpt-5.1-codex-max_migration_prompt" = true
-
-[notice.model_migrations]
-"gpt-5.2" = "gpt-5.2-codex"
