@@ -1,13 +1,35 @@
 prefix_rule(
-    pattern = ["git", ["add", "checkout", "commit", "diff", "fetch", "push", "rebase", "stash", "status", "switch"]],
+    pattern = [
+        "git",
+        [
+            "add",
+            "bisect",
+            "checkout",
+            "commit",
+            "diff",
+            "fetch",
+            "push",
+            "rebase",
+            "stash",
+            "status",
+            "switch"
+        ]
+    ],
     decision = "allow",
     match = [["git", "stash", "push"], ["git", "add", "lmao.py"]],
     not_match = [["git", "merge"]],
 )
 
 prefix_rule(
-    pattern = ["git", ["merge"]],
+    pattern = ["git", ["cherry-pick", "merge", "reset", "revert"]],
     decision = "prompt",
     match = [["git", "merge"]],
+    not_match = [["git", "fart"], ["git", "checkout"], ["git", "diff"], ["git", "lullaby"]],
+)
+
+prefix_rule(
+    pattern = ["git", ["clean"]],
+    decision = "forbidden",
+    match = [["git", "clean"]],
     not_match = [["git", "fart"], ["git", "checkout"], ["git", "diff"], ["git", "lullaby"]],
 )
