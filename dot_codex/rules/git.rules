@@ -4,10 +4,12 @@ prefix_rule(
         [
             "add",
             "bisect",
+            "branch",
             "checkout",
             "commit",
             "diff",
             "fetch",
+            "pull",
             "push",
             "rebase",
             "stash",
