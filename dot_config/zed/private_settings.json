@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "git_panel": {
+    "tree_view": false,
+  },
   "icon_theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
@@ -17,7 +20,7 @@
   "agent_buffer_font_size": 16,
   "agent_ui_font_size": 18,
   "wrap_guides": [120],
-  "restore_on_startup": "none",
+  "restore_on_startup": "empty_tab",
   "theme": {
     "mode": "system",
     "dark": "Catppuccin Frappé",
