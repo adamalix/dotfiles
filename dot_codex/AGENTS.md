@@ -19,3 +19,7 @@ Use the `gh` command to interact with GitHub whenever possible.
 For skills that need a dependency, use `uv` to run python with a dependency.
 
 Example: `uv run --with pyyaml python <script.py>`
+
+# Newlines
+
+When creating github comments, commit messages, etc, use actual newlines. Do not use `\n` for newlines.
