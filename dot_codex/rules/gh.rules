@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["gh"],
+    decision = "allow",
+    match = [["gh", "pr", "view"]],
+    not_match = [["git", "fart"], ["git", "checkout"], ["git", "diff"], ["git", "lullaby"]],
+)

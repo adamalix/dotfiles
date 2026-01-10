@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["axe"],
+    decision = "allow",
+    match = [["axe", "list-simulators"]],
+    not_match = [["mise", "run", "delete"]],
+)

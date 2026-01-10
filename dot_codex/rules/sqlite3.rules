@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["sqlite3"],
+    decision = "allow",
+    match = [["sqlite3", "/Sim/Path", "yay"]],
+    not_match = [["xcrun", "simctl", "delete"]],
+)
