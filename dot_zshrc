@@ -138,7 +138,11 @@ PROMPT='%F{green}%n@%m%f %F{yellow}%~%f$(git_prompt_info)
 ❯ '
 
 # Aliases
-alias ls='ls -G'
+if command -v eza >/dev/null 2>&1; then
+    alias ls="eza --group-directories-first --icons"
+else
+    alias ls='ls -G'
+fi
 
 # Configuration exports
 export TAPLO_CONFIG=~/.config/taplo/.taplo.toml
