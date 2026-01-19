@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["pnpm"],
+    decision = "allow",
+    match = [["pnpm", "dlx", "lmao@latest"], ["pnpm", "add", "-D"]],
+    not_match = [["git", "merge"]],
+)
