@@ -139,9 +139,18 @@ PROMPT='%F{green}%n@%m%f %F{yellow}%~%f$(git_prompt_info)
 
 # Aliases
 if command -v eza >/dev/null 2>&1; then
-    alias ls="eza --group-directories-first --icons"
+  unalias ls 2>/dev/null
+  function ls {
+    if [[ -t 1 ]]; then
+      eza --group-directories-first --icons "$@"
+    else
+      command ls -G "$@"
+    fi
+  }
+  autoload -Uz _eza
+  compdef _eza ls eza
 else
-    alias ls='ls -G'
+  alias ls='ls -G'
 fi
 
 # Configuration exports
@@ -151,3 +160,10 @@ export TAPLO_CONFIG=~/.config/taplo/.taplo.toml
 if [[ -f $HOME/.zshrc_local ]]; then
   source $HOME/.zshrc_local || echo "Warning: Failed to load local zshrc configuration"
 fi
+
+# bun completions
+[ -s "/Users/adam/.bun/_bun" ] && source "/Users/adam/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
