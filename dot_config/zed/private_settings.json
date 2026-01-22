@@ -8,7 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "git_panel": {
-    "tree_view": false,
+    "tree_view": true,
   },
   "icon_theme": {
     "mode": "system",
@@ -23,7 +23,7 @@
   "restore_on_startup": "empty_tab",
   "theme": {
     "mode": "system",
-    "dark": "Catppuccin Frappé",
+    "dark": "Catppuccin Macchiato",
     "light": "Catppuccin Latte",
   },
 
