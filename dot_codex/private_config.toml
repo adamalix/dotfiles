@@ -7,6 +7,8 @@ model_reasoning_effort = "high"
 web_search_request = true
 unified_exec = true
 shell_snapshot = true
+steer = true
+collab = true
 
 [sandbox_workspace_write]
 network_access = true
