@@ -12,7 +12,7 @@ Use the `gh` command to interact with GitHub whenever possible.
 
 # Working
 
-- End-to-end verify changes. If you cannot, state what blocks you.
+Whenever possible, end-to-end verify changes that you make. For example, run tests to verify changed behavior and then fix any failing tests. Build after code changes to be sure they compile and fix any new warnings or compile errors. If you cannot verify a change, state what blocks you.
 
 # Skills
 
@@ -22,4 +22,4 @@ Example: `uv run --with pyyaml python <script.py>`
 
 # Newlines
 
-When creating github comments, commit messages, etc, use actual newlines. Do not use `\n` for newlines.
+When creating github comments, commit messages, etc do not use `\n` for newlines.
