@@ -1,14 +1,16 @@
-model = "gpt-5.2-codex"
-sandbox_mode = "workspace-write"
 approval_policy = "on-request"
+model = "gpt-5.2-codex"
 model_reasoning_effort = "high"
+sandbox_mode = "workspace-write"
+web_search = "live"
 
 [features]
-web_search_request = true
-unified_exec = true
+apps = true
+collab = true
+collaboration_modes = true
 shell_snapshot = true
 steer = true
-collab = true
+unified_exec = true
 
 [sandbox_workspace_write]
 network_access = true
@@ -24,3 +26,20 @@ writable_roots = [
 
 [mcp_servers.sosumi]
 url = "https://sosumi.ai/mcp"
+
+[mcp_servers.XcodeBuildMCP]
+command = "pnpm"
+args = ["dlx", "xcodebuildmcp@latest"]
+env = { "INCREMENTAL_BUILDS_ENABLED" = "false", "XCODEBUILDMCP_SENTRY_DISABLED" = "false" }
+
+[projects."/Users/adam/dev/github/handheldprojects/inbound-ios"]
+trust_level = "trusted"
+
+[projects."/Users/adam/dev/github/handheldprojects/inbound-ios-2"]
+trust_level = "trusted"
+
+[projects."/Users/adam/dev/github/handheldprojects/inbound-ios-3"]
+trust_level = "trusted"
+
+[projects."/Users/adam/dev/github/handheldprojects/inbound-ios-4"]
+trust_level = "trusted"
