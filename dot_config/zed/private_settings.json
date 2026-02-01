@@ -35,9 +35,15 @@
     "edit_prediction_provider": "copilot",
   },
   "agent": {
+    "favorite_models": [
+      {
+        "provider": "openai",
+        "model": "gpt-5.2-codex"
+      }
+    ],
     "inline_assistant_model": {
       "provider": "openai",
-      "model": "gpt-5.2",
+      "model": "gpt-5.2-codex",
     },
     "always_allow_tool_actions": false,
     "default_profile": "ask",
