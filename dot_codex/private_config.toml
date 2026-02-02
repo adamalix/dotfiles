@@ -1,13 +1,14 @@
 approval_policy = "on-request"
 model = "gpt-5.2-codex"
+model_personality = "pragmatic"
 model_reasoning_effort = "high"
+personality = "pragmatic"
 sandbox_mode = "workspace-write"
 web_search = "live"
 
 [features]
 apps = true
 collab = true
-collaboration_modes = true
 shell_snapshot = true
 steer = true
 unified_exec = true
@@ -15,8 +16,7 @@ unified_exec = true
 [sandbox_workspace_write]
 network_access = true
 writable_roots = [
-  "/Users/adam/.cache/gh",
-  "/Users/adam/.cache/uv",
+  "/Users/adam/.cache/",
   "/Users/adam/.cargo",
   "/Users/adam/.npm",
   "/Users/adam/.rustup",
