@@ -30,7 +30,10 @@ url = "https://sosumi.ai/mcp"
 [mcp_servers.XcodeBuildMCP]
 command = "pnpm"
 args = ["dlx", "xcodebuildmcp@latest"]
-env = { "INCREMENTAL_BUILDS_ENABLED" = "false", "XCODEBUILDMCP_SENTRY_DISABLED" = "false" }
+
+[mcp_servers.XcodeBuildMCP.env]
+INCREMENTAL_BUILDS_ENABLED = "false"
+XCODEBUILDMCP_SENTRY_DISABLED = "false"
 
 [projects."/Users/adam/dev/github/handheldprojects/inbound-ios"]
 trust_level = "trusted"
