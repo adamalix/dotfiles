@@ -1,6 +1,5 @@
 approval_policy = "on-request"
 model = "gpt-5.2-codex"
-model_personality = "pragmatic"
 model_reasoning_effort = "high"
 personality = "pragmatic"
 sandbox_mode = "workspace-write"

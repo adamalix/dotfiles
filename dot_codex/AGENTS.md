@@ -12,7 +12,17 @@ Use the `gh` command to interact with GitHub whenever possible.
 
 # Working
 
-Whenever possible, end-to-end verify changes that you make. For example, run tests to verify changed behavior and then fix any failing tests. Build after code changes to be sure they compile and fix any new warnings or compile errors. If you cannot verify a change, state what blocks you.
+## Verification
+
+It is imperative to verify that changes are correct and functional. For example, run tests to verify changed behavior and then fix any failing tests. Build after code changes to be sure they compile. If you cannot verify a change, state what blocks you.
+
+## Quality
+
+Ensure changes are of high quality. For example, fix any new compiler, linter or typechecker warnings. Use the tools in each repository to ensure local quality checks pass.
+
+Simpler and idiomatic solutions are best. Ask yourself if the solution you're thinking about is the simplest approach to a given problem.
+
+Work from first principles and apply systems-level fixes. Do not apply band-aid fixes; instead find root causes to keep quality high.
 
 # Skills
 
