@@ -7,6 +7,16 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "codex": {
+      "favorite_models": [
+        "gpt-5.3-codex/high",
+        "gpt-5.3-codex/xhigh",
+        "gpt-5.3-codex/medium"
+      ],
+      "default_model": "gpt-5.3-codex/high"
+    }
+  },
   "git_panel": {
     "tree_view": true,
   },
@@ -28,11 +38,9 @@
   },
 
   "edit_predictions": {
+    "provider": "copilot",
     "mode": "eager",
     "enabled_in_text_threads": false,
-  },
-  "features": {
-    "edit_prediction_provider": "copilot",
   },
   "agent": {
     "favorite_models": [
