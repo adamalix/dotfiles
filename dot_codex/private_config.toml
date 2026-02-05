@@ -1,5 +1,5 @@
 approval_policy = "on-request"
-model = "gpt-5.2-codex"
+model = "gpt-5.3-codex"
 model_reasoning_effort = "high"
 personality = "pragmatic"
 sandbox_mode = "workspace-write"
@@ -9,8 +9,6 @@ web_search = "live"
 apps = true
 collab = true
 shell_snapshot = true
-steer = true
-unified_exec = true
 
 [sandbox_workspace_write]
 network_access = true
@@ -33,6 +31,9 @@ args = ["dlx", "xcodebuildmcp@latest"]
 [mcp_servers.XcodeBuildMCP.env]
 INCREMENTAL_BUILDS_ENABLED = "false"
 XCODEBUILDMCP_SENTRY_DISABLED = "false"
+
+[projects."/Users/adam/dev/github/handheldprojects/classifier-utils"]
+trust_level = "trusted"
 
 [projects."/Users/adam/dev/github/handheldprojects/inbound-ios"]
 trust_level = "trusted"
