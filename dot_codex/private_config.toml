@@ -24,14 +24,6 @@ writable_roots = [
 [mcp_servers.sosumi]
 url = "https://sosumi.ai/mcp"
 
-[mcp_servers.XcodeBuildMCP]
-command = "pnpm"
-args = ["dlx", "xcodebuildmcp@latest"]
-
-[mcp_servers.XcodeBuildMCP.env]
-INCREMENTAL_BUILDS_ENABLED = "false"
-XCODEBUILDMCP_SENTRY_DISABLED = "false"
-
 [projects."/Users/adam/dev/github/handheldprojects/classifier-utils"]
 trust_level = "trusted"
 
