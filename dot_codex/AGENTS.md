@@ -26,10 +26,15 @@ Work from first principles and apply systems-level fixes. Do not apply band-aid 
 
 # Skills
 
-For skills that need a dependency, use `uv` to run python with a dependency.
+Prefer running skills with `uv`
 
-Example: `uv run --with pyyaml python <script.py>`
+Example: `uv run <script.py>`
 
 # Newlines
 
-When creating github comments, commit messages, etc do not use `\n` for newlines.
+When creating github comments, commit messages, etc do not use `\n`. Prefer flags or bodyfiles to separate paragraphs.
+
+Examples:
+
+- For commit messages, use `git commit -m "Subject line" -m "Paragraph 1" -m "Paragraph 2"`
+- When using `gh`, use the `--body-file` flag.
