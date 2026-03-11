@@ -1,5 +1,5 @@
 approval_policy = "on-request"
-model = "gpt-5.3-codex"
+model = "gpt-5.4"
 model_reasoning_effort = "high"
 personality = "pragmatic"
 plan_mode_reasoning_effort = "high"
@@ -12,6 +12,7 @@ multi_agent = true
 prevent_idle_sleep = true
 shell_snapshot = true
 js_repl = true
+guardian_approval = true
 
 [sandbox_workspace_write]
 network_access = true
@@ -40,6 +41,12 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/adam/dev/github/handheldprojects/inbound-ios-4"]
+trust_level = "trusted"
+
+[projects."/Users/adam/.codex"]
+trust_level = "trusted"
+
+[projects."/Users/adam/dev/github/openai/codex"]
 trust_level = "trusted"
 
 [tui]
