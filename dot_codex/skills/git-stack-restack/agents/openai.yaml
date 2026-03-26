@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Stack Restack"
+  short_description: "Restack a stacked branch and PR chain"
+  default_prompt: "Use $git-stack-restack to move the current stacked branch and PR chain onto a new base, validate the rewritten stack, and push the updated branches safely."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "GH Stack Land"
+  short_description: "Land a stacked GitHub PR chain safely"
+  default_prompt: "Use $gh-stack-land to land the current stacked GitHub PR chain in order, restack the remaining branches after each merge, and manage CI lane contention when needed."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Stack Inspect"
+  short_description: "Inspect a stacked branch and PR chain"
+  default_prompt: "Use $git-stack-inspect to inspect the current branch stack, show the branch and PR chain, and identify the base and top of the stack."
