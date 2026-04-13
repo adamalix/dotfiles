@@ -1,4 +1,0 @@
-schemes:
-  - {{SCHEME_NAME}}
-
-project: {{WORKSPACE_NAME}}
