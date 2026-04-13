@@ -14,15 +14,11 @@ Use the `gh` command to interact with GitHub whenever possible.
 
 ## Verification
 
-It is imperative to verify that changes are correct and functional. For example, run tests to verify changed behavior and then fix any failing tests. Build after code changes to be sure they compile. If you cannot verify a change, state what blocks you.
+Verify that changes are correct and functional. For example, run tests to verify changed behavior and then fix any failing tests. Build after code changes to be sure they compile. If you cannot verify a change, state what blocks you.
 
 ## Quality
 
-Ensure changes are of high quality. For example, fix any new compiler, linter or typechecker warnings. Use the tools in each repository to ensure local quality checks pass.
-
-Simpler and idiomatic solutions are best. Ask yourself if the solution you're thinking about is the simplest approach to a given problem.
-
-Work from first principles and apply systems-level fixes. Do not apply band-aid fixes; instead find root causes to keep quality high.
+Ensure changes adhere to repository quality checks. For example, fix any new compiler, linter or typechecker warnings. Use the tools in each repository to ensure local quality checks pass.
 
 # Skills
 
@@ -38,3 +34,7 @@ Examples:
 
 - For commit messages, use `git commit -m "Subject line" -m "Paragraph 1" -m "Paragraph 2"`
 - When using `gh`, use the `--body-file` flag.
+
+# Subagents
+
+When using subagents, wait for them to return. Do no duplicate or do their work in parallel as they execute.
