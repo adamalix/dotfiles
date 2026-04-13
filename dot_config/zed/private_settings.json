@@ -8,15 +8,14 @@
 // from the command palette or from `Zed` application menu.
 {
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "agent_servers": {
-    "codex": {
-      "favorite_models": [
-        "gpt-5.3-codex/high",
-        "gpt-5.3-codex/xhigh",
-        "gpt-5.3-codex/medium",
-      ],
+    "codex-acp": {
+      "favorite_config_option_values": {
+        "model": ["gpt-5.4"],
+      },
+      "type": "registry",
       "default_model": "gpt-5.3-codex/high",
     },
   },
@@ -42,7 +41,7 @@
 
   "edit_predictions": {
     "provider": "copilot",
-    "mode": "eager",
+    "mode": "subtle",
     "enabled_in_text_threads": false,
   },
   "agent": {
