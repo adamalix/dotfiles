@@ -26,10 +26,7 @@ fi
 # Refresh cached pnpm completion every N days
 if command -v pnpm >/dev/null 2>&1; then
   export PNPM_HOME="/Users/adam/Library/pnpm"
-  case ":$PATH:" in
-    *":$PNPM_HOME:"*) ;;
-    *) export PATH="$PNPM_HOME:$PATH" ;;
-  esac
+  path=("${path[@]:#$PNPM_HOME/bin}" "$PNPM_HOME/bin")
   pnpm_comp_file="$ZSH_COMP_DIR/_pnpm"
   if [[ ! -s $pnpm_comp_file || $(find "$pnpm_comp_file" -mtime +$ZSH_COMP_REFRESH_DAYS -print -quit) ]]; then
     pnpm completion zsh >| "$pnpm_comp_file" || echo "Warning: Failed to cache pnpm completions"

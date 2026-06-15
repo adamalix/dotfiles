@@ -12,10 +12,6 @@ Use the `gh` command to interact with GitHub whenever possible.
 
 # Working
 
-## Verification
-
-Verify that changes are correct and functional. For example, run tests to verify changed behavior and then fix any failing tests. Build after code changes to be sure they compile. If you cannot verify a change, state what blocks you.
-
 ## Quality
 
 Ensure changes adhere to repository quality checks. For example, fix any new compiler, linter or typechecker warnings. Use the tools in each repository to ensure local quality checks pass.
@@ -38,3 +34,7 @@ Examples:
 # Subagents
 
 When using subagents, wait for them to return. Do no duplicate or do their work in parallel as they execute.
+
+# Tools
+
+Always use elevated permissions When using `gog` or `asc` CLI tools, asthey require access to the macOS keychain.

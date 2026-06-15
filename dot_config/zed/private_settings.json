@@ -7,6 +7,18 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "diff_view_style": "unified",
+  "proxy": "",
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
   "session": {
     "trust_all_worktrees": true,
   },
@@ -20,6 +32,7 @@
     },
   },
   "git_panel": {
+    "dock": "right",
     "tree_view": true,
   },
   "icon_theme": {
@@ -45,6 +58,7 @@
     "enabled_in_text_threads": false,
   },
   "agent": {
+    "dock": "left",
     "favorite_models": [
       {
         "provider": "openai",
@@ -57,8 +71,10 @@
     },
     "default_profile": "ask",
     "default_model": {
-      "provider": "openai",
-      "model": "gpt-5.2",
+      "effort": "medium",
+      "enable_thinking": true,
+      "provider": "openai-subscribed",
+      "model": "gpt-5.5",
     },
   },
 
