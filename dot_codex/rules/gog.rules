@@ -1,0 +1,6 @@
+prefix_rule(
+    pattern = ["gog"],
+    decision = "allow",
+    match = [["gog", "auth"]],
+    not_match = [["mise", "run", "delete"]],
+)
